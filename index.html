@@ -173,6 +173,12 @@
     color: var(--text-muted); font-size: 13px; padding: 40px 0; text-align: center;
   }
 
+  .subchart-head {
+    margin: 6px 0 6px; padding-top: 16px; border-top: 1px solid var(--gridline);
+  }
+  .subchart-title { font-size: 13px; font-weight: 600; margin: 0 0 2px; color: var(--text-secondary); }
+  .subchart-hint { font-size: 12px; color: var(--text-muted); margin: 0 0 8px; }
+
   @media (max-width: 640px) {
     .chart-box { height: 260px; }
   }
@@ -196,7 +202,7 @@
 </div>
 
 <script>
-const DATA = {"RT": {"label": "RT (Wilayah Barat)", "monthly": [{"month": "2025-02", "nf": 53.0, "de": 73.0, "rate": 137.7}, {"month": "2025-03", "nf": 84.0, "de": 39.0, "rate": 46.4}, {"month": "2025-04", "nf": 44.0, "de": 17.0, "rate": 38.6}, {"month": "2025-05", "nf": 186.0, "de": 59.0, "rate": 31.7}, {"month": "2025-06", "nf": 14.0, "de": 1.0, "rate": 7.1}, {"month": "2025-07", "nf": 90.0, "de": 20.0, "rate": 22.2}, {"month": "2025-08", "nf": 134.0, "de": 37.0, "rate": 27.6}, {"month": "2025-09", "nf": 115.0, "de": 24.0, "rate": 20.9}, {"month": "2025-10", "nf": 81.0, "de": 28.0, "rate": 34.6}, {"month": "2025-11", "nf": 54.0, "de": 15.0, "rate": 27.8}, {"month": "2025-12", "nf": 62.0, "de": 18.0, "rate": 29.0}, {"month": "2026-01", "nf": 64.0, "de": 23.0, "rate": 35.9}, {"month": "2026-02", "nf": 77.0, "de": 20.0, "rate": 26.0}, {"month": "2026-03", "nf": 37.0, "de": 13.0, "rate": 35.1}, {"month": "2026-04", "nf": 61.0, "de": 30.0, "rate": 49.2}, {"month": "2026-05", "nf": 26.0, "de": 10.0, "rate": 38.5}, {"month": "2026-06", "nf": 49.0, "de": 10.0, "rate": 20.4}, {"month": "2026-07", "nf": 45.0, "de": 21.0, "rate": 46.7}], "weekly": {"2025-02": [{"week": "Minggu 2", "nf": 16.0, "de": 11.0}, {"week": "Minggu 3", "nf": 8.0, "de": 57.0}, {"week": "Minggu 4", "nf": 29.0, "de": 5.0}], "2025-03": [{"week": "Minggu 1", "nf": 23.0, "de": 2.0}, {"week": "Minggu 2", "nf": 16.0, "de": 14.0}, {"week": "Minggu 3", "nf": 15.0, "de": 7.0}, {"week": "Minggu 4", "nf": 18.0, "de": 12.0}, {"week": "Minggu 5", "nf": 12.0, "de": 4.0}], "2025-04": [{"week": "Minggu 1", "nf": 8.0, "de": 3.0}, {"week": "Minggu 2", "nf": 7.0, "de": 4.0}, {"week": "Minggu 3", "nf": 11.0, "de": 6.0}, {"week": "Minggu 4", "nf": 18.0, "de": 4.0}], "2025-05": [{"week": "Minggu 1", "nf": 54.0, "de": 17.0}, {"week": "Minggu 2", "nf": 20.0, "de": 4.0}, {"week": "Minggu 3", "nf": 68.0, "de": 20.0}, {"week": "Minggu 4", "nf": 16.0, "de": 6.0}, {"week": "Minggu 5", "nf": 28.0, "de": 12.0}], "2025-06": [{"week": "Minggu 1", "nf": 0, "de": 0}, {"week": "Minggu 2", "nf": 0, "de": 0}, {"week": "Minggu 3", "nf": 0, "de": 0}, {"week": "Minggu 4", "nf": 14.0, "de": 1.0}], "2025-07": [{"week": "Minggu 1", "nf": 25.0, "de": 4.0}, {"week": "Minggu 2", "nf": 24.0, "de": 6.0}, {"week": "Minggu 3", "nf": 15.0, "de": 8.0}, {"week": "Minggu 4", "nf": 26.0, "de": 2.0}], "2025-08": [{"week": "Minggu 1", "nf": 31.0, "de": 6.0}, {"week": "Minggu 2", "nf": 27.0, "de": 11.0}, {"week": "Minggu 3", "nf": 28.0, "de": 3.0}, {"week": "Minggu 4", "nf": 38.0, "de": 14.0}, {"week": "Minggu 5", "nf": 10.0, "de": 3.0}], "2025-09": [{"week": "Minggu 1", "nf": 45.0, "de": 4.0}, {"week": "Minggu 2", "nf": 18.0, "de": 4.0}, {"week": "Minggu 3", "nf": 29.0, "de": 9.0}, {"week": "Minggu 4", "nf": 23.0, "de": 7.0}], "2025-10": [{"week": "Minggu 2", "nf": 33.0, "de": 4.0}, {"week": "Minggu 3", "nf": 31.0, "de": 11.0}, {"week": "Minggu 4", "nf": 17.0, "de": 13.0}], "2025-11": [{"week": "Minggu 1", "nf": 9.0, "de": 2.0}, {"week": "Minggu 2", "nf": 10.0, "de": 3.0}, {"week": "Minggu 3", "nf": 15.0, "de": 4.0}, {"week": "Minggu 4", "nf": 12.0, "de": 6.0}, {"week": "Minggu 5", "nf": 8.0, "de": 0.0}], "2025-12": [{"week": "Minggu 1", "nf": 7.0, "de": 3.0}, {"week": "Minggu 2", "nf": 24.0, "de": 5.0}, {"week": "Minggu 3", "nf": 14.0, "de": 6.0}, {"week": "Minggu 4", "nf": 17.0, "de": 4.0}], "2026-01": [{"week": "Minggu 1", "nf": 16.0, "de": 6.0}, {"week": "Minggu 2", "nf": 14.0, "de": 6.0}, {"week": "Minggu 3", "nf": 13.0, "de": 6.0}, {"week": "Minggu 4", "nf": 5.0, "de": 2.0}, {"week": "Minggu 5", "nf": 16.0, "de": 3.0}], "2026-02": [{"week": "Minggu 1", "nf": 32.0, "de": 3.0}, {"week": "Minggu 2", "nf": 21.0, "de": 6.0}, {"week": "Minggu 3", "nf": 16.0, "de": 5.0}, {"week": "Minggu 4", "nf": 8.0, "de": 6.0}], "2026-03": [{"week": "Minggu 1", "nf": 11.0, "de": 5.0}, {"week": "Minggu 2", "nf": 8.0, "de": 2.0}, {"week": "Minggu 3", "nf": 3.0, "de": 0.0}, {"week": "Minggu 4", "nf": 15.0, "de": 6.0}], "2026-04": [{"week": "Minggu 1", "nf": 35.0, "de": 16.0}, {"week": "Minggu 2", "nf": 5.0, "de": 1.0}, {"week": "Minggu 3", "nf": 11.0, "de": 8.0}, {"week": "Minggu 4", "nf": 10.0, "de": 5.0}], "2026-05": [{"week": "Minggu 2", "nf": 8.0, "de": 4.0}, {"week": "Minggu 3", "nf": 4.0, "de": 1.0}, {"week": "Minggu 4", "nf": 5.0, "de": 1.0}, {"week": "Minggu 5", "nf": 9.0, "de": 4.0}], "2026-06": [{"week": "Minggu 1", "nf": 15.0, "de": 2.0}, {"week": "Minggu 2", "nf": 15.0, "de": 4.0}, {"week": "Minggu 3", "nf": 9.0, "de": 2.0}, {"week": "Minggu 4", "nf": 10.0, "de": 2.0}], "2026-07": [{"week": "Minggu 1", "nf": 12.0, "de": 8.0}, {"week": "Minggu 2", "nf": 11.0, "de": 8.0}, {"week": "Minggu 3", "nf": 22.0, "de": 5.0}]}, "raw_count": 151}, "PCM": {"label": "PCM (Wilayah Timur)", "monthly": [{"month": "2025-02", "nf": 29.0, "de": 23.0, "rate": 79.3}, {"month": "2025-03", "nf": 69.0, "de": 36.0, "rate": 52.2}, {"month": "2025-04", "nf": 31.0, "de": 21.0, "rate": 67.7}, {"month": "2025-05", "nf": 87.0, "de": 55.0, "rate": 63.2}, {"month": "2025-06", "nf": 46.0, "de": 24.0, "rate": 52.2}, {"month": "2025-07", "nf": 57.0, "de": 29.0, "rate": 50.9}, {"month": "2025-08", "nf": 112.0, "de": 69.0, "rate": 61.6}, {"month": "2025-09", "nf": 57.0, "de": 19.0, "rate": 33.3}, {"month": "2025-10", "nf": 75.0, "de": 36.0, "rate": 48.0}, {"month": "2025-11", "nf": 54.0, "de": 18.0, "rate": 33.3}, {"month": "2025-12", "nf": 38.0, "de": 15.0, "rate": 39.5}, {"month": "2026-01", "nf": 31.0, "de": 14.0, "rate": 45.2}, {"month": "2026-02", "nf": 15.0, "de": 2.0, "rate": 13.3}, {"month": "2026-03", "nf": 41.0, "de": 22.0, "rate": 53.7}, {"month": "2026-04", "nf": 23.0, "de": 7.0, "rate": 30.4}, {"month": "2026-05", "nf": 29.0, "de": 11.0, "rate": 37.9}, {"month": "2026-06", "nf": 36.0, "de": 14.0, "rate": 38.9}, {"month": "2026-07", "nf": 25.0, "de": 22.0, "rate": 88.0}], "weekly": {"2025-02": [{"week": "Minggu 2", "nf": 14.0, "de": 10.0}, {"week": "Minggu 3", "nf": 13.0, "de": 11.0}, {"week": "Minggu 4", "nf": 2.0, "de": 2.0}], "2025-03": [{"week": "Minggu 1", "nf": 25.0, "de": 17.0}, {"week": "Minggu 2", "nf": 16.0, "de": 4.0}, {"week": "Minggu 3", "nf": 13.0, "de": 4.0}, {"week": "Minggu 4", "nf": 7.0, "de": 6.0}, {"week": "Minggu 5", "nf": 8.0, "de": 5.0}], "2025-04": [{"week": "Minggu 1", "nf": 9.0, "de": 4.0}, {"week": "Minggu 2", "nf": 13.0, "de": 9.0}, {"week": "Minggu 3", "nf": 3.0, "de": 2.0}, {"week": "Minggu 4", "nf": 6.0, "de": 6.0}], "2025-05": [{"week": "Minggu 1", "nf": 20.0, "de": 17.0}, {"week": "Minggu 2", "nf": 13.0, "de": 7.0}, {"week": "Minggu 3", "nf": 28.0, "de": 20.0}, {"week": "Minggu 4", "nf": 16.0, "de": 8.0}, {"week": "Minggu 5", "nf": 10.0, "de": 3.0}], "2025-06": [{"week": "Minggu 1", "nf": 6.0, "de": 2.0}, {"week": "Minggu 2", "nf": 13.0, "de": 9.0}, {"week": "Minggu 3", "nf": 13.0, "de": 8.0}, {"week": "Minggu 4", "nf": 14.0, "de": 5.0}], "2025-07": [{"week": "Minggu 1", "nf": 9.0, "de": 5.0}, {"week": "Minggu 2", "nf": 3.0, "de": 1.0}, {"week": "Minggu 3", "nf": 19.0, "de": 10.0}, {"week": "Minggu 4", "nf": 26.0, "de": 13.0}], "2025-08": [{"week": "Minggu 1", "nf": 23.0, "de": 16.0}, {"week": "Minggu 2", "nf": 26.0, "de": 23.0}, {"week": "Minggu 3", "nf": 19.0, "de": 7.0}, {"week": "Minggu 4", "nf": 33.0, "de": 17.0}, {"week": "Minggu 5", "nf": 11.0, "de": 6.0}], "2025-09": [{"week": "Minggu 1", "nf": 14.0, "de": 5.0}, {"week": "Minggu 2", "nf": 17.0, "de": 4.0}, {"week": "Minggu 3", "nf": 11.0, "de": 4.0}, {"week": "Minggu 4", "nf": 15.0, "de": 6.0}], "2025-10": [{"week": "Minggu 1", "nf": 20.0, "de": 8.0}, {"week": "Minggu 2", "nf": 31.0, "de": 17.0}, {"week": "Minggu 3", "nf": 15.0, "de": 8.0}, {"week": "Minggu 4", "nf": 9.0, "de": 3.0}], "2025-11": [{"week": "Minggu 1", "nf": 15.0, "de": 6.0}, {"week": "Minggu 2", "nf": 15.0, "de": 3.0}, {"week": "Minggu 3", "nf": 14.0, "de": 6.0}, {"week": "Minggu 4", "nf": 4.0, "de": 0.0}, {"week": "Minggu 5", "nf": 6.0, "de": 3.0}], "2025-12": [{"week": "Minggu 1", "nf": 8.0, "de": 2.0}, {"week": "Minggu 2", "nf": 17.0, "de": 7.0}, {"week": "Minggu 3", "nf": 6.0, "de": 5.0}, {"week": "Minggu 4", "nf": 7.0, "de": 1.0}], "2026-01": [{"week": "Minggu 1", "nf": 9.0, "de": 6.0}, {"week": "Minggu 2", "nf": 6.0, "de": 3.0}, {"week": "Minggu 3", "nf": 12.0, "de": 4.0}, {"week": "Minggu 4", "nf": 4.0, "de": 1.0}], "2026-02": [{"week": "Minggu 1", "nf": 3.0, "de": 0.0}, {"week": "Minggu 2", "nf": 1.0, "de": 0.0}, {"week": "Minggu 4", "nf": 11.0, "de": 2.0}], "2026-03": [{"week": "Minggu 1", "nf": 12.0, "de": 9.0}, {"week": "Minggu 2", "nf": 15.0, "de": 2.0}, {"week": "Minggu 3", "nf": 9.0, "de": 5.0}, {"week": "Minggu 4", "nf": 5.0, "de": 6.0}], "2026-04": [{"week": "Minggu 1", "nf": 11.0, "de": 2.0}, {"week": "Minggu 2", "nf": 4.0, "de": 2.0}, {"week": "Minggu 3", "nf": 4.0, "de": 2.0}, {"week": "Minggu 4", "nf": 4.0, "de": 1.0}], "2026-05": [{"week": "Minggu 1", "nf": 5.0, "de": 0.0}, {"week": "Minggu 2", "nf": 8.0, "de": 1.0}, {"week": "Minggu 3", "nf": 4.0, "de": 1.0}, {"week": "Minggu 4", "nf": 10.0, "de": 9.0}, {"week": "Minggu 5", "nf": 2.0, "de": 0.0}], "2026-06": [{"week": "Minggu 1", "nf": 9.0, "de": 3.0}, {"week": "Minggu 2", "nf": 7.0, "de": 3.0}, {"week": "Minggu 3", "nf": 15.0, "de": 4.0}, {"week": "Minggu 4", "nf": 5.0, "de": 4.0}], "2026-07": [{"week": "Minggu 1", "nf": 4.0, "de": 6.0}, {"week": "Minggu 2", "nf": 12.0, "de": 7.0}, {"week": "Minggu 3", "nf": 9.0, "de": 9.0}]}, "raw_count": 149}, "MCC": {"label": "MCC (Wilayah Selatan)", "monthly": [{"month": "2024-03", "nf": 3.0, "de": 0, "rate": 0.0}, {"month": "2025-01", "nf": 13.0, "de": 3.0, "rate": 23.1}, {"month": "2025-02", "nf": 15.0, "de": 4.0, "rate": 26.7}, {"month": "2025-03", "nf": 39.0, "de": 8.0, "rate": 20.5}, {"month": "2025-04", "nf": 21.0, "de": 4.0, "rate": 19.0}, {"month": "2025-07", "nf": 13.0, "de": 2.0, "rate": 15.4}, {"month": "2025-08", "nf": 47.0, "de": 12.0, "rate": 25.5}, {"month": "2025-09", "nf": 70.0, "de": 9.0, "rate": 12.9}, {"month": "2025-10", "nf": 64.0, "de": 7.0, "rate": 10.9}, {"month": "2025-11", "nf": 37.0, "de": 5.0, "rate": 13.5}, {"month": "2025-12", "nf": 21.0, "de": 1.0, "rate": 4.8}, {"month": "2026-01", "nf": 23.0, "de": 6.0, "rate": 26.1}, {"month": "2026-02", "nf": 19.0, "de": 3.0, "rate": 15.8}, {"month": "2026-03", "nf": 18.0, "de": 2.0, "rate": 11.1}, {"month": "2026-04", "nf": 35.0, "de": 12.0, "rate": 34.3}, {"month": "2026-05", "nf": 35.0, "de": 4.0, "rate": 11.4}, {"month": "2026-06", "nf": 19.0, "de": 4.0, "rate": 21.1}, {"month": "2026-07", "nf": 10.0, "de": 2.0, "rate": 20.0}], "weekly": {"2024-03": [{"week": "Minggu 5", "nf": 3.0, "de": 0}], "2025-01": [{"week": "Minggu 3", "nf": 5.0, "de": 1.0}, {"week": "Minggu 4", "nf": 8.0, "de": 2.0}], "2025-02": [{"week": "Minggu 1", "nf": 3.0, "de": 0}, {"week": "Minggu 2", "nf": 0, "de": 0}, {"week": "Minggu 3", "nf": 5.0, "de": 3.0}, {"week": "Minggu 4", "nf": 7.0, "de": 1.0}], "2025-03": [{"week": "Minggu 1", "nf": 9.0, "de": 3.0}, {"week": "Minggu 2", "nf": 8.0, "de": 1.0}, {"week": "Minggu 3", "nf": 12.0, "de": 3.0}, {"week": "Minggu 4", "nf": 10.0, "de": 1.0}], "2025-04": [{"week": "Minggu 1", "nf": 5.0, "de": 0}, {"week": "Minggu 2", "nf": 7.0, "de": 3.0}, {"week": "Minggu 3", "nf": 9.0, "de": 1.0}, {"week": "Minggu 4", "nf": 0.0, "de": 0.0}], "2025-07": [{"week": "Minggu 3", "nf": 5.0, "de": 2.0}, {"week": "Minggu 4", "nf": 8.0, "de": 0.0}], "2025-08": [{"week": "Minggu 1", "nf": 6.0, "de": 2.0}, {"week": "Minggu 2", "nf": 15.0, "de": 3.0}, {"week": "Minggu 3", "nf": 11.0, "de": 3.0}, {"week": "Minggu 4", "nf": 15.0, "de": 4.0}], "2025-09": [{"week": "Minggu 1", "nf": 16.0, "de": 3.0}, {"week": "Minggu 2", "nf": 13.0, "de": 3.0}, {"week": "Minggu 3", "nf": 17.0, "de": 2.0}, {"week": "Minggu 4", "nf": 24.0, "de": 1.0}], "2025-10": [{"week": "Minggu 1", "nf": 29.0, "de": 2.0}, {"week": "Minggu 2", "nf": 6.0, "de": 0.0}, {"week": "Minggu 3", "nf": 14.0, "de": 3.0}, {"week": "Minggu 4", "nf": 15.0, "de": 2.0}], "2025-11": [{"week": "Minggu 1", "nf": 11.0, "de": 3.0}, {"week": "Minggu 2", "nf": 6.0, "de": 0.0}, {"week": "Minggu 3", "nf": 6.0, "de": 1.0}, {"week": "Minggu 4", "nf": 9.0, "de": 1.0}, {"week": "Minggu 5", "nf": 5.0, "de": 0.0}], "2025-12": [{"week": "Minggu 1", "nf": 5.0, "de": 0.0}, {"week": "Minggu 2", "nf": 13.0, "de": 0.0}, {"week": "Minggu 3", "nf": 1.0, "de": 1.0}, {"week": "Minggu 4", "nf": 2.0, "de": 0.0}], "2026-01": [{"week": "Minggu 1", "nf": 6.0, "de": 0.0}, {"week": "Minggu 2", "nf": 4.0, "de": 1.0}, {"week": "Minggu 3", "nf": 6.0, "de": 2.0}, {"week": "Minggu 4", "nf": 3.0, "de": 0.0}, {"week": "Minggu 5", "nf": 4.0, "de": 3.0}], "2026-02": [{"week": "Minggu 1", "nf": 2.0, "de": 1.0}, {"week": "Minggu 2", "nf": 6.0, "de": 1.0}, {"week": "Minggu 3", "nf": 3.0, "de": 1.0}, {"week": "Minggu 4", "nf": 8.0, "de": 0.0}], "2026-03": [{"week": "Minggu 1", "nf": 2.0, "de": 0.0}, {"week": "Minggu 2", "nf": 2.0, "de": 1.0}, {"week": "Minggu 3", "nf": 4.0, "de": 0.0}, {"week": "Minggu 4", "nf": 10.0, "de": 1.0}], "2026-04": [{"week": "Minggu 1", "nf": 17.0, "de": 11.0}, {"week": "Minggu 2", "nf": 9.0, "de": 1.0}, {"week": "Minggu 3", "nf": 5.0, "de": 0.0}, {"week": "Minggu 4", "nf": 4.0, "de": 0.0}], "2026-05": [{"week": "Minggu 1", "nf": 6.0, "de": 0.0}, {"week": "Minggu 2", "nf": 9.0, "de": 0.0}, {"week": "Minggu 3", "nf": 7.0, "de": 0.0}, {"week": "Minggu 4", "nf": 5.0, "de": 0.0}, {"week": "Minggu 5", "nf": 8.0, "de": 4.0}], "2026-06": [{"week": "Minggu 1", "nf": 2.0, "de": 0.0}, {"week": "Minggu 2", "nf": 4.0, "de": 1.0}, {"week": "Minggu 3", "nf": 5.0, "de": 0.0}, {"week": "Minggu 4", "nf": 8.0, "de": 3.0}], "2026-07": [{"week": "Minggu 1", "nf": 3.0, "de": 0.0}, {"week": "Minggu 2", "nf": 1.0, "de": 0.0}, {"week": "Minggu 3", "nf": 6.0, "de": 2.0}]}, "raw_count": 134}, "PUSURA": {"label": "Pusura (Wilayah Tengah)", "monthly": [{"month": "2025-10", "nf": 12.0, "de": 6.0, "rate": 50.0}, {"month": "2025-11", "nf": 18.0, "de": 10.0, "rate": 55.6}, {"month": "2025-12", "nf": 18.0, "de": 6.0, "rate": 33.3}, {"month": "2026-01", "nf": 25.0, "de": 13.0, "rate": 52.0}, {"month": "2026-02", "nf": 5.0, "de": 2.0, "rate": 40.0}, {"month": "2026-03", "nf": 13.0, "de": 2.0, "rate": 15.4}, {"month": "2026-04", "nf": 10.0, "de": 1.0, "rate": 10.0}, {"month": "2026-05", "nf": 11.0, "de": 4.0, "rate": 36.4}, {"month": "2026-06", "nf": 11.0, "de": 6.0, "rate": 54.5}, {"month": "2026-07", "nf": 16.0, "de": 4.0, "rate": 25.0}], "weekly": {"2025-10": [{"week": "Minggu 4", "nf": 12.0, "de": 6.0}], "2025-11": [{"week": "Minggu 1", "nf": 6.0, "de": 4.0}, {"week": "Minggu 2", "nf": 5.0, "de": 2.0}, {"week": "Minggu 3", "nf": 2.0, "de": 1.0}, {"week": "Minggu 4", "nf": 5.0, "de": 2.0}, {"week": "Minggu 5", "nf": 0.0, "de": 1.0}], "2025-12": [{"week": "Minggu 1", "nf": 6.0, "de": 3.0}, {"week": "Minggu 3", "nf": 4.0, "de": 2.0}, {"week": "Minggu 4", "nf": 8.0, "de": 1.0}], "2026-01": [{"week": "Minggu 1", "nf": 7.0, "de": 3.0}, {"week": "Minggu 2", "nf": 5.0, "de": 4.0}, {"week": "Minggu 3", "nf": 10.0, "de": 5.0}, {"week": "Minggu 4", "nf": 3.0, "de": 1.0}], "2026-02": [{"week": "Minggu 1", "nf": 2.0, "de": 1.0}, {"week": "Minggu 2", "nf": 1.0, "de": 1.0}, {"week": "Minggu 4", "nf": 2.0, "de": 0.0}], "2026-03": [{"week": "Minggu 1", "nf": 5.0, "de": 0.0}, {"week": "Minggu 2", "nf": 2.0, "de": 0.0}, {"week": "Minggu 3", "nf": 2.0, "de": 2.0}, {"week": "Minggu 4", "nf": 3.0, "de": 0.0}, {"week": "Minggu 5", "nf": 1.0, "de": 0.0}], "2026-04": [{"week": "Minggu 1", "nf": 3.0, "de": 0.0}, {"week": "Minggu 2", "nf": 3.0, "de": 1.0}, {"week": "Minggu 3", "nf": 0.0, "de": 0.0}, {"week": "Minggu 4", "nf": 4.0, "de": 0.0}], "2026-05": [{"week": "Minggu 1", "nf": 2.0, "de": 2.0}, {"week": "Minggu 2", "nf": 2.0, "de": 0.0}, {"week": "Minggu 3", "nf": 5.0, "de": 2.0}, {"week": "Minggu 4", "nf": 1.0, "de": 0.0}, {"week": "Minggu 5", "nf": 1.0, "de": 0.0}], "2026-06": [{"week": "Minggu 1", "nf": 1.0, "de": 1.0}, {"week": "Minggu 2", "nf": 3.0, "de": 2.0}, {"week": "Minggu 3", "nf": 5.0, "de": 2.0}, {"week": "Minggu 4", "nf": 2.0, "de": 1.0}], "2026-07": [{"week": "Minggu 1", "nf": 1.0, "de": 1.0}, {"week": "Minggu 2", "nf": 3.0, "de": 0.0}, {"week": "Minggu 3", "nf": 12.0, "de": 3.0}]}, "raw_count": 40}, "TOTAL": {"label": "Analisa Keseluruhan", "monthly": [{"month": "2024-03", "nf": 3.0, "de": 0, "rate": 0.0}, {"month": "2025-01", "nf": 13.0, "de": 3.0, "rate": 23.1}, {"month": "2025-02", "nf": 97.0, "de": 100.0, "rate": 103.1}, {"month": "2025-03", "nf": 192.0, "de": 83.0, "rate": 43.2}, {"month": "2025-04", "nf": 96.0, "de": 42.0, "rate": 43.8}, {"month": "2025-05", "nf": 273.0, "de": 114.0, "rate": 41.8}, {"month": "2025-06", "nf": 60.0, "de": 25.0, "rate": 41.7}, {"month": "2025-07", "nf": 160.0, "de": 51.0, "rate": 31.9}, {"month": "2025-08", "nf": 293.0, "de": 118.0, "rate": 40.3}, {"month": "2025-09", "nf": 242.0, "de": 52.0, "rate": 21.5}, {"month": "2025-10", "nf": 232.0, "de": 77.0, "rate": 33.2}, {"month": "2025-11", "nf": 163.0, "de": 48.0, "rate": 29.4}, {"month": "2025-12", "nf": 139.0, "de": 40.0, "rate": 28.8}, {"month": "2026-01", "nf": 143.0, "de": 56.0, "rate": 39.2}, {"month": "2026-02", "nf": 116.0, "de": 27.0, "rate": 23.3}, {"month": "2026-03", "nf": 109.0, "de": 39.0, "rate": 35.8}, {"month": "2026-04", "nf": 129.0, "de": 50.0, "rate": 38.8}, {"month": "2026-05", "nf": 101.0, "de": 29.0, "rate": 28.7}, {"month": "2026-06", "nf": 115.0, "de": 34.0, "rate": 29.6}, {"month": "2026-07", "nf": 96.0, "de": 49.0, "rate": 51.0}]}};
+const DATA = {"RT": {"label": "RT (Wilayah Barat)", "monthly": [{"month": "2025-02", "nf": 53.0, "de": 73.0, "rate": 137.7}, {"month": "2025-03", "nf": 84.0, "de": 39.0, "rate": 46.4}, {"month": "2025-04", "nf": 44.0, "de": 17.0, "rate": 38.6}, {"month": "2025-05", "nf": 186.0, "de": 59.0, "rate": 31.7}, {"month": "2025-06", "nf": 14.0, "de": 1.0, "rate": 7.1}, {"month": "2025-07", "nf": 90.0, "de": 20.0, "rate": 22.2}, {"month": "2025-08", "nf": 134.0, "de": 37.0, "rate": 27.6}, {"month": "2025-09", "nf": 115.0, "de": 24.0, "rate": 20.9}, {"month": "2025-10", "nf": 81.0, "de": 28.0, "rate": 34.6}, {"month": "2025-11", "nf": 54.0, "de": 15.0, "rate": 27.8}, {"month": "2025-12", "nf": 62.0, "de": 18.0, "rate": 29.0}, {"month": "2026-01", "nf": 64.0, "de": 23.0, "rate": 35.9}, {"month": "2026-02", "nf": 77.0, "de": 20.0, "rate": 26.0}, {"month": "2026-03", "nf": 37.0, "de": 13.0, "rate": 35.1}, {"month": "2026-04", "nf": 61.0, "de": 30.0, "rate": 49.2}, {"month": "2026-05", "nf": 26.0, "de": 10.0, "rate": 38.5}, {"month": "2026-06", "nf": 49.0, "de": 10.0, "rate": 20.4}, {"month": "2026-07", "nf": 45.0, "de": 21.0, "rate": 46.7}], "weekly": {"2025-02": [{"week": "Minggu 2", "nf": 16.0, "de": 11.0}, {"week": "Minggu 3", "nf": 8.0, "de": 57.0}, {"week": "Minggu 4", "nf": 29.0, "de": 5.0}], "2025-03": [{"week": "Minggu 1", "nf": 23.0, "de": 2.0}, {"week": "Minggu 2", "nf": 16.0, "de": 14.0}, {"week": "Minggu 3", "nf": 15.0, "de": 7.0}, {"week": "Minggu 4", "nf": 18.0, "de": 12.0}, {"week": "Minggu 5", "nf": 12.0, "de": 4.0}], "2025-04": [{"week": "Minggu 1", "nf": 8.0, "de": 3.0}, {"week": "Minggu 2", "nf": 7.0, "de": 4.0}, {"week": "Minggu 3", "nf": 11.0, "de": 6.0}, {"week": "Minggu 4", "nf": 18.0, "de": 4.0}], "2025-05": [{"week": "Minggu 1", "nf": 54.0, "de": 17.0}, {"week": "Minggu 2", "nf": 20.0, "de": 4.0}, {"week": "Minggu 3", "nf": 68.0, "de": 20.0}, {"week": "Minggu 4", "nf": 16.0, "de": 6.0}, {"week": "Minggu 5", "nf": 28.0, "de": 12.0}], "2025-06": [{"week": "Minggu 1", "nf": 0.0, "de": 0.0}, {"week": "Minggu 2", "nf": 0.0, "de": 0.0}, {"week": "Minggu 3", "nf": 0.0, "de": 0.0}, {"week": "Minggu 4", "nf": 14.0, "de": 1.0}], "2025-07": [{"week": "Minggu 1", "nf": 25.0, "de": 4.0}, {"week": "Minggu 2", "nf": 24.0, "de": 6.0}, {"week": "Minggu 3", "nf": 15.0, "de": 8.0}, {"week": "Minggu 4", "nf": 26.0, "de": 2.0}], "2025-08": [{"week": "Minggu 1", "nf": 31.0, "de": 6.0}, {"week": "Minggu 2", "nf": 27.0, "de": 11.0}, {"week": "Minggu 3", "nf": 28.0, "de": 3.0}, {"week": "Minggu 4", "nf": 38.0, "de": 14.0}, {"week": "Minggu 5", "nf": 10.0, "de": 3.0}], "2025-09": [{"week": "Minggu 1", "nf": 45.0, "de": 4.0}, {"week": "Minggu 2", "nf": 18.0, "de": 4.0}, {"week": "Minggu 3", "nf": 29.0, "de": 9.0}, {"week": "Minggu 4", "nf": 23.0, "de": 7.0}], "2025-10": [{"week": "Minggu 2", "nf": 33.0, "de": 4.0}, {"week": "Minggu 3", "nf": 31.0, "de": 11.0}, {"week": "Minggu 4", "nf": 17.0, "de": 13.0}], "2025-11": [{"week": "Minggu 1", "nf": 9.0, "de": 2.0}, {"week": "Minggu 2", "nf": 10.0, "de": 3.0}, {"week": "Minggu 3", "nf": 15.0, "de": 4.0}, {"week": "Minggu 4", "nf": 12.0, "de": 6.0}, {"week": "Minggu 5", "nf": 8.0, "de": 0.0}], "2025-12": [{"week": "Minggu 1", "nf": 7.0, "de": 3.0}, {"week": "Minggu 2", "nf": 24.0, "de": 5.0}, {"week": "Minggu 3", "nf": 14.0, "de": 6.0}, {"week": "Minggu 4", "nf": 17.0, "de": 4.0}], "2026-01": [{"week": "Minggu 1", "nf": 16.0, "de": 6.0}, {"week": "Minggu 2", "nf": 14.0, "de": 6.0}, {"week": "Minggu 3", "nf": 13.0, "de": 6.0}, {"week": "Minggu 4", "nf": 5.0, "de": 2.0}, {"week": "Minggu 5", "nf": 16.0, "de": 3.0}], "2026-02": [{"week": "Minggu 1", "nf": 32.0, "de": 3.0}, {"week": "Minggu 2", "nf": 21.0, "de": 6.0}, {"week": "Minggu 3", "nf": 16.0, "de": 5.0}, {"week": "Minggu 4", "nf": 8.0, "de": 6.0}], "2026-03": [{"week": "Minggu 1", "nf": 11.0, "de": 5.0}, {"week": "Minggu 2", "nf": 8.0, "de": 2.0}, {"week": "Minggu 3", "nf": 3.0, "de": 0.0}, {"week": "Minggu 4", "nf": 15.0, "de": 6.0}], "2026-04": [{"week": "Minggu 1", "nf": 35.0, "de": 16.0}, {"week": "Minggu 2", "nf": 5.0, "de": 1.0}, {"week": "Minggu 3", "nf": 11.0, "de": 8.0}, {"week": "Minggu 4", "nf": 10.0, "de": 5.0}], "2026-05": [{"week": "Minggu 2", "nf": 8.0, "de": 4.0}, {"week": "Minggu 3", "nf": 4.0, "de": 1.0}, {"week": "Minggu 4", "nf": 5.0, "de": 1.0}, {"week": "Minggu 5", "nf": 9.0, "de": 4.0}], "2026-06": [{"week": "Minggu 1", "nf": 15.0, "de": 2.0}, {"week": "Minggu 2", "nf": 15.0, "de": 4.0}, {"week": "Minggu 3", "nf": 9.0, "de": 2.0}, {"week": "Minggu 4", "nf": 10.0, "de": 2.0}], "2026-07": [{"week": "Minggu 1", "nf": 12.0, "de": 8.0}, {"week": "Minggu 2", "nf": 11.0, "de": 8.0}, {"week": "Minggu 3", "nf": 22.0, "de": 5.0}]}}, "PCM": {"label": "PCM (Wilayah Timur)", "monthly": [{"month": "2025-02", "nf": 29.0, "de": 23.0, "rate": 79.3}, {"month": "2025-03", "nf": 69.0, "de": 36.0, "rate": 52.2}, {"month": "2025-04", "nf": 31.0, "de": 21.0, "rate": 67.7}, {"month": "2025-05", "nf": 87.0, "de": 55.0, "rate": 63.2}, {"month": "2025-06", "nf": 46.0, "de": 24.0, "rate": 52.2}, {"month": "2025-07", "nf": 57.0, "de": 29.0, "rate": 50.9}, {"month": "2025-08", "nf": 112.0, "de": 69.0, "rate": 61.6}, {"month": "2025-09", "nf": 57.0, "de": 19.0, "rate": 33.3}, {"month": "2025-10", "nf": 75.0, "de": 36.0, "rate": 48.0}, {"month": "2025-11", "nf": 54.0, "de": 18.0, "rate": 33.3}, {"month": "2025-12", "nf": 38.0, "de": 15.0, "rate": 39.5}, {"month": "2026-01", "nf": 31.0, "de": 14.0, "rate": 45.2}, {"month": "2026-02", "nf": 16.0, "de": 2.0, "rate": 12.5}, {"month": "2026-03", "nf": 41.0, "de": 22.0, "rate": 53.7}, {"month": "2026-04", "nf": 23.0, "de": 7.0, "rate": 30.4}, {"month": "2026-05", "nf": 29.0, "de": 11.0, "rate": 37.9}, {"month": "2026-06", "nf": 36.0, "de": 14.0, "rate": 38.9}, {"month": "2026-07", "nf": 25.0, "de": 22.0, "rate": 88.0}], "weekly": {"2025-02": [{"week": "Minggu 2", "nf": 14.0, "de": 10.0}, {"week": "Minggu 3", "nf": 13.0, "de": 11.0}, {"week": "Minggu 4", "nf": 2.0, "de": 2.0}], "2025-03": [{"week": "Minggu 1", "nf": 25.0, "de": 17.0}, {"week": "Minggu 2", "nf": 16.0, "de": 4.0}, {"week": "Minggu 3", "nf": 13.0, "de": 4.0}, {"week": "Minggu 4", "nf": 7.0, "de": 6.0}, {"week": "Minggu 5", "nf": 8.0, "de": 5.0}], "2025-04": [{"week": "Minggu 1", "nf": 9.0, "de": 4.0}, {"week": "Minggu 2", "nf": 13.0, "de": 9.0}, {"week": "Minggu 3", "nf": 3.0, "de": 2.0}, {"week": "Minggu 4", "nf": 6.0, "de": 6.0}], "2025-05": [{"week": "Minggu 1", "nf": 20.0, "de": 17.0}, {"week": "Minggu 2", "nf": 13.0, "de": 7.0}, {"week": "Minggu 3", "nf": 28.0, "de": 20.0}, {"week": "Minggu 4", "nf": 16.0, "de": 8.0}, {"week": "Minggu 5", "nf": 10.0, "de": 3.0}], "2025-06": [{"week": "Minggu 1", "nf": 6.0, "de": 2.0}, {"week": "Minggu 2", "nf": 13.0, "de": 9.0}, {"week": "Minggu 3", "nf": 13.0, "de": 8.0}, {"week": "Minggu 4", "nf": 14.0, "de": 5.0}], "2025-07": [{"week": "Minggu 1", "nf": 9.0, "de": 5.0}, {"week": "Minggu 2", "nf": 3.0, "de": 1.0}, {"week": "Minggu 3", "nf": 19.0, "de": 10.0}, {"week": "Minggu 4", "nf": 26.0, "de": 13.0}], "2025-08": [{"week": "Minggu 1", "nf": 23.0, "de": 16.0}, {"week": "Minggu 2", "nf": 26.0, "de": 23.0}, {"week": "Minggu 3", "nf": 19.0, "de": 7.0}, {"week": "Minggu 4", "nf": 33.0, "de": 17.0}, {"week": "Minggu 5", "nf": 11.0, "de": 6.0}], "2025-09": [{"week": "Minggu 1", "nf": 14.0, "de": 5.0}, {"week": "Minggu 2", "nf": 17.0, "de": 4.0}, {"week": "Minggu 3", "nf": 11.0, "de": 4.0}, {"week": "Minggu 4", "nf": 15.0, "de": 6.0}], "2025-10": [{"week": "Minggu 1", "nf": 20.0, "de": 8.0}, {"week": "Minggu 2", "nf": 31.0, "de": 17.0}, {"week": "Minggu 3", "nf": 15.0, "de": 8.0}, {"week": "Minggu 4", "nf": 9.0, "de": 3.0}], "2025-11": [{"week": "Minggu 1", "nf": 15.0, "de": 6.0}, {"week": "Minggu 2", "nf": 15.0, "de": 3.0}, {"week": "Minggu 3", "nf": 14.0, "de": 6.0}, {"week": "Minggu 4", "nf": 4.0, "de": 0.0}, {"week": "Minggu 5", "nf": 6.0, "de": 3.0}], "2025-12": [{"week": "Minggu 1", "nf": 8.0, "de": 2.0}, {"week": "Minggu 2", "nf": 17.0, "de": 7.0}, {"week": "Minggu 3", "nf": 6.0, "de": 5.0}, {"week": "Minggu 4", "nf": 7.0, "de": 1.0}], "2026-01": [{"week": "Minggu 1", "nf": 9.0, "de": 6.0}, {"week": "Minggu 2", "nf": 6.0, "de": 3.0}, {"week": "Minggu 3", "nf": 12.0, "de": 4.0}, {"week": "Minggu 4", "nf": 4.0, "de": 1.0}], "2026-02": [{"week": "Minggu 1", "nf": 3.0, "de": 0.0}, {"week": "Minggu 2", "nf": 1.0, "de": 0.0}, {"week": "Minggu 4", "nf": 12.0, "de": 2.0}], "2026-03": [{"week": "Minggu 1", "nf": 12.0, "de": 9.0}, {"week": "Minggu 2", "nf": 15.0, "de": 2.0}, {"week": "Minggu 3", "nf": 9.0, "de": 5.0}, {"week": "Minggu 4", "nf": 5.0, "de": 6.0}], "2026-04": [{"week": "Minggu 1", "nf": 11.0, "de": 2.0}, {"week": "Minggu 2", "nf": 4.0, "de": 2.0}, {"week": "Minggu 3", "nf": 4.0, "de": 2.0}, {"week": "Minggu 4", "nf": 4.0, "de": 1.0}], "2026-05": [{"week": "Minggu 1", "nf": 5.0, "de": 0.0}, {"week": "Minggu 2", "nf": 8.0, "de": 1.0}, {"week": "Minggu 3", "nf": 4.0, "de": 1.0}, {"week": "Minggu 4", "nf": 10.0, "de": 9.0}, {"week": "Minggu 5", "nf": 2.0, "de": 0.0}], "2026-06": [{"week": "Minggu 1", "nf": 9.0, "de": 3.0}, {"week": "Minggu 2", "nf": 7.0, "de": 3.0}, {"week": "Minggu 3", "nf": 15.0, "de": 4.0}, {"week": "Minggu 4", "nf": 5.0, "de": 4.0}], "2026-07": [{"week": "Minggu 1", "nf": 4.0, "de": 6.0}, {"week": "Minggu 2", "nf": 12.0, "de": 7.0}, {"week": "Minggu 3", "nf": 9.0, "de": 9.0}]}}, "MCC": {"label": "MCC (Wilayah Selatan)", "monthly": [{"month": "2024-03", "nf": 3.0, "de": 0.0, "rate": 0.0}, {"month": "2025-01", "nf": 13.0, "de": 3.0, "rate": 23.1}, {"month": "2025-02", "nf": 15.0, "de": 4.0, "rate": 26.7}, {"month": "2025-03", "nf": 39.0, "de": 8.0, "rate": 20.5}, {"month": "2025-04", "nf": 21.0, "de": 4.0, "rate": 19.0}, {"month": "2025-05", "nf": 43.0, "de": 6.0, "rate": 14.0}, {"month": "2025-06", "nf": 13.0, "de": 7.0, "rate": 53.8}, {"month": "2025-07", "nf": 22.0, "de": 2.0, "rate": 9.1}, {"month": "2025-08", "nf": 47.0, "de": 12.0, "rate": 25.5}, {"month": "2025-09", "nf": 70.0, "de": 9.0, "rate": 12.9}, {"month": "2025-10", "nf": 64.0, "de": 7.0, "rate": 10.9}, {"month": "2025-11", "nf": 37.0, "de": 5.0, "rate": 13.5}, {"month": "2025-12", "nf": 21.0, "de": 1.0, "rate": 4.8}, {"month": "2026-01", "nf": 23.0, "de": 6.0, "rate": 26.1}, {"month": "2026-02", "nf": 19.0, "de": 3.0, "rate": 15.8}, {"month": "2026-03", "nf": 18.0, "de": 2.0, "rate": 11.1}, {"month": "2026-04", "nf": 35.0, "de": 12.0, "rate": 34.3}, {"month": "2026-05", "nf": 35.0, "de": 4.0, "rate": 11.4}, {"month": "2026-06", "nf": 19.0, "de": 4.0, "rate": 21.1}, {"month": "2026-07", "nf": 10.0, "de": 2.0, "rate": 20.0}], "weekly": {"2025-01": [{"week": "Minggu 3", "nf": 5.0, "de": 1.0}, {"week": "Minggu 4", "nf": 8.0, "de": 2.0}], "2025-02": [{"week": "Minggu 1", "nf": 3.0, "de": 0.0}, {"week": "Minggu 2", "nf": 0.0, "de": 0.0}, {"week": "Minggu 3", "nf": 5.0, "de": 3.0}, {"week": "Minggu 4", "nf": 7.0, "de": 1.0}], "2025-03": [{"week": "Minggu 1", "nf": 9.0, "de": 3.0}, {"week": "Minggu 2", "nf": 8.0, "de": 1.0}, {"week": "Minggu 3", "nf": 12.0, "de": 3.0}, {"week": "Minggu 4", "nf": 10.0, "de": 1.0}], "2024-03": [{"week": "Minggu 5", "nf": 3.0, "de": 0.0}], "2025-04": [{"week": "Minggu 1", "nf": 5.0, "de": 0.0}, {"week": "Minggu 2", "nf": 7.0, "de": 3.0}, {"week": "Minggu 3", "nf": 9.0, "de": 1.0}, {"week": "Minggu 4", "nf": 0.0, "de": 0.0}], "2025-05": [{"week": "Minggu 1", "nf": 8.0, "de": 0.0}, {"week": "Minggu 2", "nf": 7.0, "de": 2.0}, {"week": "Minggu 3", "nf": 14.0, "de": 0.0}, {"week": "Minggu 4", "nf": 9.0, "de": 1.0}, {"week": "Minggu 5", "nf": 5.0, "de": 3.0}], "2025-06": [{"week": "Minggu 1", "nf": 6.0, "de": 2.0}, {"week": "Minggu 2", "nf": 1.0, "de": 0.0}, {"week": "Minggu 3", "nf": 4.0, "de": 3.0}, {"week": "Minggu 4", "nf": 2.0, "de": 2.0}], "2025-07": [{"week": "Minggu 1", "nf": 2.0, "de": 0.0}, {"week": "Minggu 2", "nf": 7.0, "de": 0.0}, {"week": "Minggu 3", "nf": 5.0, "de": 2.0}, {"week": "Minggu 4", "nf": 8.0, "de": 0.0}], "2025-08": [{"week": "Minggu 1", "nf": 6.0, "de": 2.0}, {"week": "Minggu 2", "nf": 15.0, "de": 3.0}, {"week": "Minggu 3", "nf": 11.0, "de": 3.0}, {"week": "Minggu 4", "nf": 15.0, "de": 4.0}], "2025-09": [{"week": "Minggu 1", "nf": 16.0, "de": 3.0}, {"week": "Minggu 2", "nf": 13.0, "de": 3.0}, {"week": "Minggu 3", "nf": 17.0, "de": 2.0}, {"week": "Minggu 4", "nf": 24.0, "de": 1.0}], "2025-10": [{"week": "Minggu 1", "nf": 29.0, "de": 2.0}, {"week": "Minggu 2", "nf": 6.0, "de": 0.0}, {"week": "Minggu 3", "nf": 14.0, "de": 3.0}, {"week": "Minggu 4", "nf": 15.0, "de": 2.0}], "2025-11": [{"week": "Minggu 1", "nf": 11.0, "de": 3.0}, {"week": "Minggu 2", "nf": 6.0, "de": 0.0}, {"week": "Minggu 3", "nf": 6.0, "de": 1.0}, {"week": "Minggu 4", "nf": 9.0, "de": 1.0}, {"week": "Minggu 5", "nf": 5.0, "de": 0.0}], "2025-12": [{"week": "Minggu 1", "nf": 5.0, "de": 0.0}, {"week": "Minggu 2", "nf": 13.0, "de": 0.0}, {"week": "Minggu 3", "nf": 1.0, "de": 1.0}, {"week": "Minggu 4", "nf": 2.0, "de": 0.0}], "2026-01": [{"week": "Minggu 1", "nf": 6.0, "de": 0.0}, {"week": "Minggu 2", "nf": 4.0, "de": 1.0}, {"week": "Minggu 3", "nf": 6.0, "de": 2.0}, {"week": "Minggu 4", "nf": 3.0, "de": 0.0}, {"week": "Minggu 5", "nf": 4.0, "de": 3.0}], "2026-02": [{"week": "Minggu 1", "nf": 2.0, "de": 1.0}, {"week": "Minggu 2", "nf": 6.0, "de": 1.0}, {"week": "Minggu 3", "nf": 3.0, "de": 1.0}, {"week": "Minggu 4", "nf": 8.0, "de": 0.0}], "2026-03": [{"week": "Minggu 1", "nf": 2.0, "de": 0.0}, {"week": "Minggu 2", "nf": 2.0, "de": 1.0}, {"week": "Minggu 3", "nf": 4.0, "de": 0.0}, {"week": "Minggu 4", "nf": 10.0, "de": 1.0}], "2026-04": [{"week": "Minggu 1", "nf": 17.0, "de": 11.0}, {"week": "Minggu 2", "nf": 9.0, "de": 1.0}, {"week": "Minggu 3", "nf": 5.0, "de": 0.0}, {"week": "Minggu 4", "nf": 4.0, "de": 0.0}], "2026-05": [{"week": "Minggu 1", "nf": 6.0, "de": 0.0}, {"week": "Minggu 2", "nf": 9.0, "de": 0.0}, {"week": "Minggu 3", "nf": 7.0, "de": 0.0}, {"week": "Minggu 4", "nf": 5.0, "de": 0.0}, {"week": "Minggu 5", "nf": 8.0, "de": 4.0}], "2026-06": [{"week": "Minggu 1", "nf": 2.0, "de": 0.0}, {"week": "Minggu 2", "nf": 4.0, "de": 1.0}, {"week": "Minggu 3", "nf": 5.0, "de": 0.0}, {"week": "Minggu 4", "nf": 8.0, "de": 3.0}], "2026-07": [{"week": "Minggu 1", "nf": 3.0, "de": 0.0}, {"week": "Minggu 2", "nf": 1.0, "de": 0.0}, {"week": "Minggu 3", "nf": 6.0, "de": 2.0}]}}, "PUSURA": {"label": "Pusura (Wilayah Tengah)", "monthly": [{"month": "2025-10", "nf": 12.0, "de": 6.0, "rate": 50.0}, {"month": "2025-11", "nf": 18.0, "de": 10.0, "rate": 55.6}, {"month": "2025-12", "nf": 25.0, "de": 7.0, "rate": 28.0}, {"month": "2026-01", "nf": 25.0, "de": 13.0, "rate": 52.0}, {"month": "2026-02", "nf": 5.0, "de": 2.0, "rate": 40.0}, {"month": "2026-03", "nf": 13.0, "de": 2.0, "rate": 15.4}, {"month": "2026-04", "nf": 10.0, "de": 1.0, "rate": 10.0}, {"month": "2026-05", "nf": 11.0, "de": 4.0, "rate": 36.4}, {"month": "2026-06", "nf": 11.0, "de": 6.0, "rate": 54.5}, {"month": "2026-07", "nf": 16.0, "de": 4.0, "rate": 25.0}], "weekly": {"2025-10": [{"week": "Minggu 4", "nf": 12.0, "de": 6.0}], "2025-11": [{"week": "Minggu 1", "nf": 6.0, "de": 4.0}, {"week": "Minggu 2", "nf": 5.0, "de": 2.0}, {"week": "Minggu 3", "nf": 2.0, "de": 1.0}, {"week": "Minggu 4", "nf": 5.0, "de": 2.0}, {"week": "Minggu 5", "nf": 0.0, "de": 1.0}], "2025-12": [{"week": "Minggu 1", "nf": 6.0, "de": 3.0}, {"week": "Minggu 2", "nf": 7.0, "de": 1.0}, {"week": "Minggu 3", "nf": 4.0, "de": 2.0}, {"week": "Minggu 4", "nf": 8.0, "de": 1.0}], "2026-01": [{"week": "Minggu 1", "nf": 7.0, "de": 3.0}, {"week": "Minggu 2", "nf": 5.0, "de": 4.0}, {"week": "Minggu 3", "nf": 10.0, "de": 5.0}, {"week": "Minggu 4", "nf": 3.0, "de": 1.0}], "2026-02": [{"week": "Minggu 1", "nf": 2.0, "de": 1.0}, {"week": "Minggu 2", "nf": 1.0, "de": 1.0}, {"week": "Minggu 4", "nf": 2.0, "de": 0.0}], "2026-03": [{"week": "Minggu 1", "nf": 5.0, "de": 0.0}, {"week": "Minggu 2", "nf": 2.0, "de": 0.0}, {"week": "Minggu 3", "nf": 2.0, "de": 2.0}, {"week": "Minggu 4", "nf": 3.0, "de": 0.0}, {"week": "Minggu 5", "nf": 1.0, "de": 0.0}], "2026-04": [{"week": "Minggu 1", "nf": 3.0, "de": 0.0}, {"week": "Minggu 2", "nf": 3.0, "de": 1.0}, {"week": "Minggu 3", "nf": 0.0, "de": 0.0}, {"week": "Minggu 4", "nf": 4.0, "de": 0.0}], "2026-05": [{"week": "Minggu 1", "nf": 2.0, "de": 2.0}, {"week": "Minggu 2", "nf": 2.0, "de": 0.0}, {"week": "Minggu 3", "nf": 5.0, "de": 2.0}, {"week": "Minggu 4", "nf": 1.0, "de": 0.0}, {"week": "Minggu 5", "nf": 1.0, "de": 0.0}], "2026-06": [{"week": "Minggu 1", "nf": 1.0, "de": 1.0}, {"week": "Minggu 2", "nf": 3.0, "de": 2.0}, {"week": "Minggu 3", "nf": 5.0, "de": 2.0}, {"week": "Minggu 4", "nf": 2.0, "de": 1.0}], "2026-07": [{"week": "Minggu 1", "nf": 1.0, "de": 1.0}, {"week": "Minggu 2", "nf": 3.0, "de": 0.0}, {"week": "Minggu 3", "nf": 12.0, "de": 3.0}]}}, "TOTAL": {"label": "Analisa Keseluruhan", "monthly": [{"month": "2024-03", "nf": 3.0, "de": 0.0, "rate": 0.0}, {"month": "2025-01", "nf": 13.0, "de": 3.0, "rate": 23.1}, {"month": "2025-02", "nf": 97.0, "de": 100.0, "rate": 103.1}, {"month": "2025-03", "nf": 192.0, "de": 83.0, "rate": 43.2}, {"month": "2025-04", "nf": 96.0, "de": 42.0, "rate": 43.8}, {"month": "2025-05", "nf": 316.0, "de": 120.0, "rate": 38.0}, {"month": "2025-06", "nf": 73.0, "de": 32.0, "rate": 43.8}, {"month": "2025-07", "nf": 169.0, "de": 51.0, "rate": 30.2}, {"month": "2025-08", "nf": 293.0, "de": 118.0, "rate": 40.3}, {"month": "2025-09", "nf": 242.0, "de": 52.0, "rate": 21.5}, {"month": "2025-10", "nf": 232.0, "de": 77.0, "rate": 33.2}, {"month": "2025-11", "nf": 163.0, "de": 48.0, "rate": 29.4}, {"month": "2025-12", "nf": 146.0, "de": 41.0, "rate": 28.1}, {"month": "2026-01", "nf": 143.0, "de": 56.0, "rate": 39.2}, {"month": "2026-02", "nf": 117.0, "de": 27.0, "rate": 23.1}, {"month": "2026-03", "nf": 109.0, "de": 39.0, "rate": 35.8}, {"month": "2026-04", "nf": 129.0, "de": 50.0, "rate": 38.8}, {"month": "2026-05", "nf": 101.0, "de": 29.0, "rate": 28.7}, {"month": "2026-06", "nf": 115.0, "de": 34.0, "rate": 29.6}, {"month": "2026-07", "nf": 96.0, "de": 49.0, "rate": 51.0}]}};
 const TABS = [{"code": "RT", "type": "region"}, {"code": "PCM", "type": "region"}, {"code": "MCC", "type": "region"}, {"code": "PUSURA", "type": "region"}, {"code": "TOTAL", "type": "analysis", "label": "Analisa Keseluruhan"}];
 const REGION_ORDER = ["RT", "PCM", "MCC", "PUSURA"];
 
@@ -292,55 +298,62 @@ function renderRegionTab(container) {
 
   const totalNf = sumSeries(region.monthly, 'nf');
   const totalDe = sumSeries(region.monthly, 'de');
-  const monthlyTableOn = !!showTableByRegion[currentTab+'_m'];
-  const weeklyTableOn = !!showTableByRegion[currentTab+'_w'];
+  const overallRegionRate = totalNf > 0 ? (totalDe / totalNf * 100) : null;
 
+  // Growth (NF/Data Entry) and the rate-join-CG trend live in one card,
+  // stacked as two aligned panels sharing the same month axis, rather than
+  // two separate cards — merged per user request. Two different units
+  // (counts vs a %) still get two separate plots/scales (never a dual-axis
+  // overlay on one plot), just grouped visually as one unit.
   const monthlyCard = document.createElement('div');
   monthlyCard.className = 'card';
   monthlyCard.innerHTML = `
     <div class="card-head">
-      <p class="card-title">Growth bulanan &mdash; ${region.label}</p>
+      <p class="card-title">Growth &amp; Rate NF Bergabung CG &mdash; ${region.label}</p>
     </div>
     <p class="card-hint">Klik salah satu bulan pada grafik untuk melihat rincian mingguan di bawah</p>
     <div class="stat-row">
       <div class="stat nf"><span class="label"><span class="swatch" style="background:${'var(--series-1)'}"></span>Total NF</span><span class="value">${totalNf.toLocaleString('id-ID')}</span></div>
       <div class="stat de"><span class="label"><span class="swatch" style="background:${'var(--series-2)'}"></span>Total Data Entry</span><span class="value">${totalDe.toLocaleString('id-ID')}</span></div>
+      <div class="stat"><span class="label">Rate join CG keseluruhan</span><span class="value">${overallRegionRate != null ? overallRegionRate.toFixed(1) + '%' : '—'}</span></div>
     </div>
-    ${monthlyTableOn ? '' : '<div class="chart-box"><canvas id="monthlyChart"></canvas></div>'}
-    <div class="table-toggle-row">
-      <button class="link-btn" id="monthlyTableToggle" type="button">${monthlyTableOn ? 'Lihat sebagai grafik' : 'Lihat sebagai tabel'}</button>
+    <div class="chart-box"><canvas id="monthlyChart"></canvas></div>
+    <div class="subchart-head">
+      <p class="subchart-title">Rate join CG per bulan</p>
+      <p class="subchart-hint">Data Entry &divide; NF &times; 100%, bulan yang sama dengan grafik di atas</p>
     </div>
+    <div class="chart-box small"><canvas id="regionRateChart"></canvas></div>
+    <p class="card-hint monthly-table-heading">Rincian per bulan, termasuk rate join CG</p>
     <div id="monthlyTableWrap"></div>
   `;
   container.appendChild(monthlyCard);
 
+  // Weekly drilldown: same pattern as the monthly card above — growth bars,
+  // then the rate-join-CG trend for those same weeks, then the table with
+  // both, all in one card, always visible (no chart/table toggle).
   const weeklyCard = document.createElement('div');
   weeklyCard.className = 'card';
   weeklyCard.innerHTML = `
     <div class="card-head">
       <p class="card-title" id="drillTitle">Rincian mingguan</p>
     </div>
-    ${weeklyTableOn ? '' : '<div class="chart-box small"><canvas id="weeklyChart"></canvas></div>'}
-    <div class="table-toggle-row">
-      <button class="link-btn" id="weeklyTableToggle" type="button">${weeklyTableOn ? 'Lihat sebagai grafik' : 'Lihat sebagai tabel'}</button>
+    <div class="chart-box small"><canvas id="weeklyChart"></canvas></div>
+    <div class="subchart-head">
+      <p class="subchart-title">Rate join CG per minggu</p>
+      <p class="subchart-hint">Data Entry &divide; NF &times; 100%, minggu yang sama dengan grafik di atas</p>
     </div>
+    <div class="chart-box small"><canvas id="weeklyRateChart"></canvas></div>
+    <p class="card-hint monthly-table-heading">Rincian per minggu, termasuk rate join CG</p>
     <div id="weeklyTableWrap"></div>
   `;
   container.appendChild(weeklyCard);
 
-  if (!monthlyTableOn) drawRegionMonthlyChart(region);
-  if (!weeklyTableOn) drawWeeklyChart(region, selectedMonthByRegion[currentTab]);
+  drawRegionMonthlyChart(region);
+  drawRegionRateChart(region);
+  drawWeeklyChart(region, selectedMonthByRegion[currentTab]);
+  drawWeeklyRateChart(region, selectedMonthByRegion[currentTab]);
   renderMonthlyTable(region);
   renderWeeklyTable(region, selectedMonthByRegion[currentTab]);
-
-  document.getElementById('monthlyTableToggle').addEventListener('click', () => {
-    showTableByRegion[currentTab+'_m'] = !showTableByRegion[currentTab+'_m'];
-    renderContent();
-  });
-  document.getElementById('weeklyTableToggle').addEventListener('click', () => {
-    showTableByRegion[currentTab+'_w'] = !showTableByRegion[currentTab+'_w'];
-    renderContent();
-  });
 }
 
 function commonScales(extra) {
@@ -431,6 +444,7 @@ function drawRegionMonthlyChart(region) {
             selectedMonthByRegion[currentTab] = monthKey;
             drawRegionMonthlyChart(region);
             drawWeeklyChart(region, selectedMonthByRegion[currentTab]);
+            drawWeeklyRateChart(region, selectedMonthByRegion[currentTab]);
             renderWeeklyTable(region, selectedMonthByRegion[currentTab]);
           }, 0);
         }
@@ -443,6 +457,58 @@ function drawRegionMonthlyChart(region) {
         tooltip: Object.assign({ displayColors: true }, tooltipBase()),
       },
       scales: commonScales(),
+    },
+  });
+}
+
+function drawRegionRateChart(region) {
+  destroyChart('regionRateChart');
+  const ctx = document.getElementById('regionRateChart');
+  if (!ctx) return;
+  const labels = region.monthly.map(m => formatMonth(m.month));
+  const rate = region.monthly.map(m => m.rate);
+
+  liveCharts['regionRateChart'] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Rate join CG',
+          data: rate,
+          borderColor: css('--series-1'),
+          backgroundColor: css('--series-1') + '1a',
+          fill: true,
+          tension: 0.25,
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: css('--series-1'),
+          pointBorderColor: css('--surface-1'),
+          pointBorderWidth: 2,
+          spanGaps: true,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false }, // single series — title already names it
+        tooltip: Object.assign({
+          callbacks: {
+            label: (item) => item.parsed.y != null ? `Rate join CG: ${item.parsed.y.toFixed(1)}%` : 'Tidak ada data',
+          },
+        }, tooltipBase()),
+      },
+      scales: commonScales({
+        y: {
+          beginAtZero: true,
+          grid: { color: css('--gridline') },
+          ticks: { color: css('--text-muted'), font: { size: 11 }, callback: (v) => v + '%' },
+          border: { display: false },
+        },
+      }),
     },
   });
 }
@@ -490,22 +556,91 @@ function drawWeeklyChart(region, month) {
   });
 }
 
+function weeklyRate(w) {
+  return w.nf > 0 ? Math.round((w.de / w.nf * 100) * 10) / 10 : null;
+}
+
+function drawWeeklyRateChart(region, month) {
+  destroyChart('weeklyRateChart');
+  const ctx = document.getElementById('weeklyRateChart');
+  if (!ctx) return;
+
+  const weeks = (region.weekly && region.weekly[month]) || [];
+  if (!weeks.length) {
+    ctx.closest('.chart-box').innerHTML = '<p class="drill-empty">Tidak ada data mingguan untuk bulan ini.</p>';
+    return;
+  }
+
+  const labels = weeks.map(w => w.week);
+  const rate = weeks.map(weeklyRate);
+
+  liveCharts['weeklyRateChart'] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Rate join CG',
+          data: rate,
+          borderColor: css('--series-1'),
+          backgroundColor: css('--series-1') + '1a',
+          fill: true,
+          tension: 0.25,
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: css('--series-1'),
+          pointBorderColor: css('--surface-1'),
+          pointBorderWidth: 2,
+          spanGaps: true,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false }, // single series — title already names it
+        tooltip: Object.assign({
+          callbacks: {
+            label: (item) => item.parsed.y != null ? `Rate join CG: ${item.parsed.y.toFixed(1)}%` : 'Tidak ada data',
+          },
+        }, tooltipBase()),
+      },
+      scales: commonScales({
+        y: {
+          beginAtZero: true,
+          grid: { color: css('--gridline') },
+          ticks: { color: css('--text-muted'), font: { size: 11 }, callback: (v) => v + '%' },
+          border: { display: false },
+        },
+      }),
+    },
+  });
+}
+
 function renderMonthlyTable(region) {
+  // Always visible now (no chart/table toggle for the monthly section) —
+  // sits below both the NF/Data Entry bar chart and the rate line chart so
+  // the exact per-month rate figures are on-screen without an extra click.
   const wrap = document.getElementById('monthlyTableWrap');
   if (!wrap) return;
-  if (!showTableByRegion[currentTab+'_m']) { wrap.innerHTML = ''; return; }
   let rows = region.monthly.map(m => `<tr><td>${formatMonth(m.month)}</td><td>${m.nf.toLocaleString('id-ID')}</td><td>${m.de.toLocaleString('id-ID')}</td><td>${m.rate != null ? m.rate.toFixed(1) + '%' : '—'}</td></tr>`).join('');
   wrap.innerHTML = `<table class="data-table"><thead><tr><th>Bulan</th><th>NF</th><th>Data Entry</th><th>Rate join CG</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 function renderWeeklyTable(region, month) {
+  // Always visible now (no chart/table toggle for the weekly section) — see
+  // renderMonthlyTable for the same pattern.
   const wrap = document.getElementById('weeklyTableWrap');
   if (!wrap) return;
-  if (!showTableByRegion[currentTab+'_w']) { wrap.innerHTML = ''; return; }
   const weeks = (region.weekly && region.weekly[month]) || [];
   if (!weeks.length) { wrap.innerHTML = '<p class="drill-empty">Tidak ada data.</p>'; return; }
-  let rows = weeks.map(w => `<tr><td>${w.week}</td><td>${w.nf.toLocaleString('id-ID')}</td><td>${w.de.toLocaleString('id-ID')}</td></tr>`).join('');
-  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Minggu</th><th>NF</th><th>Data Entry</th></tr></thead><tbody>${rows}</tbody></table>`;
+  let rows = weeks.map(w => {
+    const r = weeklyRate(w);
+    return `<tr><td>${w.week}</td><td>${w.nf.toLocaleString('id-ID')}</td><td>${w.de.toLocaleString('id-ID')}</td><td>${r != null ? r.toFixed(1) + '%' : '—'}</td></tr>`;
+  }).join('');
+  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Minggu</th><th>NF</th><th>Data Entry</th><th>Rate join CG</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 // ---------------------------------------------------------------------
@@ -528,16 +663,15 @@ function renderAnalysisTab(container) {
   const totalNf = sumSeries(monthly, 'nf');
   const totalDe = sumSeries(monthly, 'de');
   const overallRate = totalNf > 0 ? (totalDe / totalNf * 100) : null;
-  const growthTableOn = !!showTableByRegion['TOTAL_growth'];
-  const rateTableOn = !!showTableByRegion['TOTAL_rate'];
-  const regionTotalsTableOn = !!showTableByRegion['TOTAL_regionTotals'];
 
-  // -- Card 1: combined growth (all regions summed) --
+  // -- Card 1: combined growth + rate join CG, merged into one card, always
+  // showing both charts and the table (no toggles) — same pattern as the
+  // per-region tabs. --
   const growthCard = document.createElement('div');
   growthCard.className = 'card';
   growthCard.innerHTML = `
     <div class="card-head">
-      <p class="card-title">Growth NF &amp; Data Entry &mdash; Semua Wilayah</p>
+      <p class="card-title">Growth &amp; Rate NF Bergabung CG &mdash; Semua Wilayah</p>
     </div>
     <p class="card-hint">Total gabungan RT, PCM, MCC, dan Pusura per bulan</p>
     <div class="stat-row">
@@ -545,15 +679,19 @@ function renderAnalysisTab(container) {
       <div class="stat de"><span class="label"><span class="swatch" style="background:${'var(--series-2)'}"></span>Total Data Entry</span><span class="value">${totalDe.toLocaleString('id-ID')}</span></div>
       <div class="stat"><span class="label">Rate join CG keseluruhan</span><span class="value">${overallRate != null ? overallRate.toFixed(1) + '%' : '—'}</span></div>
     </div>
-    ${growthTableOn ? '' : '<div class="chart-box"><canvas id="totalGrowthChart"></canvas></div>'}
-    <div class="table-toggle-row">
-      <button class="link-btn" id="growthTableToggle" type="button">${growthTableOn ? 'Lihat sebagai grafik' : 'Lihat sebagai tabel'}</button>
+    <div class="chart-box"><canvas id="totalGrowthChart"></canvas></div>
+    <div class="subchart-head">
+      <p class="subchart-title">Rate join CG per bulan</p>
+      <p class="subchart-hint">Data Entry &divide; NF &times; 100%, bulan yang sama dengan grafik di atas</p>
     </div>
+    <div class="chart-box small"><canvas id="rateChart"></canvas></div>
+    <p class="card-hint monthly-table-heading">Rincian per bulan, termasuk rate join CG</p>
     <div id="growthTableWrap"></div>
   `;
   container.appendChild(growthCard);
 
-  // -- Card 2: NF & Data Entry per wilayah (totals, whole period) --
+  // -- Card 2: NF & Data Entry per wilayah (totals, whole period) — chart +
+  // table always visible together, no toggle. --
   const regionTotalsCard = document.createElement('div');
   regionTotalsCard.className = 'card';
   regionTotalsCard.innerHTML = `
@@ -561,49 +699,17 @@ function renderAnalysisTab(container) {
       <p class="card-title">NF &amp; Data Entry &mdash; Per Wilayah</p>
     </div>
     <p class="card-hint">Total NF dan Data Entry sepanjang periode data, dibandingkan antar wilayah</p>
-    ${regionTotalsTableOn ? '' : '<div class="chart-box"><canvas id="regionTotalsChart"></canvas></div>'}
-    <div class="table-toggle-row">
-      <button class="link-btn" id="regionTotalsTableToggle" type="button">${regionTotalsTableOn ? 'Lihat sebagai grafik' : 'Lihat sebagai tabel'}</button>
-    </div>
+    <div class="chart-box"><canvas id="regionTotalsChart"></canvas></div>
+    <p class="card-hint monthly-table-heading">Rincian per wilayah</p>
     <div id="regionTotalsTableWrap"></div>
   `;
   container.appendChild(regionTotalsCard);
 
-  // -- Card 3: join-CG rate trend (combined) --
-  const rateCard = document.createElement('div');
-  rateCard.className = 'card';
-  rateCard.innerHTML = `
-    <div class="card-head">
-      <p class="card-title">Rate NF Bergabung CG</p>
-    </div>
-    <p class="card-hint">Data Entry &divide; NF &times; 100% per bulan &mdash; makin tinggi, makin banyak NF baru yang lanjut gabung Cell Group</p>
-    ${rateTableOn ? '' : '<div class="chart-box small"><canvas id="rateChart"></canvas></div>'}
-    <div class="table-toggle-row">
-      <button class="link-btn" id="rateTableToggle" type="button">${rateTableOn ? 'Lihat sebagai grafik' : 'Lihat sebagai tabel'}</button>
-    </div>
-    <div id="rateTableWrap"></div>
-  `;
-  container.appendChild(rateCard);
-
-  if (!growthTableOn) drawTotalGrowthChart(monthly);
-  if (!regionTotalsTableOn) drawRegionTotalsChart();
-  if (!rateTableOn) drawRateChart(monthly);
+  drawTotalGrowthChart(monthly);
+  drawRegionTotalsChart();
+  drawRateChart(monthly);
   renderGrowthTable(monthly);
   renderRegionTotalsTable();
-  renderRateTable(monthly);
-
-  document.getElementById('growthTableToggle').addEventListener('click', () => {
-    showTableByRegion['TOTAL_growth'] = !showTableByRegion['TOTAL_growth'];
-    renderContent();
-  });
-  document.getElementById('regionTotalsTableToggle').addEventListener('click', () => {
-    showTableByRegion['TOTAL_regionTotals'] = !showTableByRegion['TOTAL_regionTotals'];
-    renderContent();
-  });
-  document.getElementById('rateTableToggle').addEventListener('click', () => {
-    showTableByRegion['TOTAL_rate'] = !showTableByRegion['TOTAL_rate'];
-    renderContent();
-  });
 }
 
 function drawTotalGrowthChart(monthly) {
@@ -689,19 +795,13 @@ function drawRateChart(monthly) {
 }
 
 function renderGrowthTable(monthly) {
+  // Always visible (no chart/table toggle) — covers both the growth bar
+  // chart and the rate line chart above it, so the rate figures always sit
+  // beside NF/Data Entry rather than needing a separate table.
   const wrap = document.getElementById('growthTableWrap');
   if (!wrap) return;
-  if (!showTableByRegion['TOTAL_growth']) { wrap.innerHTML = ''; return; }
-  let rows = monthly.map(m => `<tr><td>${formatMonth(m.month)}</td><td>${m.nf.toLocaleString('id-ID')}</td><td>${m.de.toLocaleString('id-ID')}</td></tr>`).join('');
-  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Bulan</th><th>NF</th><th>Data Entry</th></tr></thead><tbody>${rows}</tbody></table>`;
-}
-
-function renderRateTable(monthly) {
-  const wrap = document.getElementById('rateTableWrap');
-  if (!wrap) return;
-  if (!showTableByRegion['TOTAL_rate']) { wrap.innerHTML = ''; return; }
-  let rows = monthly.map(m => `<tr><td>${formatMonth(m.month)}</td><td>${m.rate != null ? m.rate.toFixed(1) + '%' : '—'}</td></tr>`).join('');
-  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Bulan</th><th>Rate join CG</th></tr></thead><tbody>${rows}</tbody></table>`;
+  let rows = monthly.map(m => `<tr><td>${formatMonth(m.month)}</td><td>${m.nf.toLocaleString('id-ID')}</td><td>${m.de.toLocaleString('id-ID')}</td><td>${m.rate != null ? m.rate.toFixed(1) + '%' : '—'}</td></tr>`).join('');
+  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Bulan</th><th>NF</th><th>Data Entry</th><th>Rate join CG</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 function drawRegionTotalsChart() {
@@ -735,15 +835,17 @@ function drawRegionTotalsChart() {
 }
 
 function renderRegionTotalsTable() {
+  // Always visible (no chart/table toggle) — same pattern as the rest of
+  // the dashboard.
   const wrap = document.getElementById('regionTotalsTableWrap');
   if (!wrap) return;
-  if (!showTableByRegion['TOTAL_regionTotals']) { wrap.innerHTML = ''; return; }
   let rows = REGION_ORDER.map(code => {
     const nf = sumSeries(DATA[code].monthly, 'nf');
     const de = sumSeries(DATA[code].monthly, 'de');
-    return `<tr><td>${DATA[code].label}</td><td>${nf.toLocaleString('id-ID')}</td><td>${de.toLocaleString('id-ID')}</td></tr>`;
+    const rate = nf > 0 ? (de / nf * 100) : null;
+    return `<tr><td>${DATA[code].label}</td><td>${nf.toLocaleString('id-ID')}</td><td>${de.toLocaleString('id-ID')}</td><td>${rate != null ? rate.toFixed(1) + '%' : '—'}</td></tr>`;
   }).join('');
-  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Wilayah</th><th>NF</th><th>Data Entry</th></tr></thead><tbody>${rows}</tbody></table>`;
+  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Wilayah</th><th>NF</th><th>Data Entry</th><th>Rate join CG</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 document.getElementById('themeToggle').addEventListener('click', () => {
