@@ -494,8 +494,8 @@ function renderMonthlyTable(region) {
   const wrap = document.getElementById('monthlyTableWrap');
   if (!wrap) return;
   if (!showTableByRegion[currentTab+'_m']) { wrap.innerHTML = ''; return; }
-  let rows = region.monthly.map(m => `<tr><td>${formatMonth(m.month)}</td><td>${m.nf.toLocaleString('id-ID')}</td><td>${m.de.toLocaleString('id-ID')}</td></tr>`).join('');
-  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Bulan</th><th>NF</th><th>Data Entry</th></tr></thead><tbody>${rows}</tbody></table>`;
+  let rows = region.monthly.map(m => `<tr><td>${formatMonth(m.month)}</td><td>${m.nf.toLocaleString('id-ID')}</td><td>${m.de.toLocaleString('id-ID')}</td><td>${m.rate != null ? m.rate.toFixed(1) + '%' : '—'}</td></tr>`).join('');
+  wrap.innerHTML = `<table class="data-table"><thead><tr><th>Bulan</th><th>NF</th><th>Data Entry</th><th>Rate join CG</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 function renderWeeklyTable(region, month) {
@@ -509,12 +509,11 @@ function renderWeeklyTable(region, month) {
 }
 
 // ---------------------------------------------------------------------
-// Analysis tab: combined growth & rate across all regions, PLUS the same
-// two views broken out per region so they can be compared side by side
-// without switching tabs.
+// Analysis tab: combined growth & rate across all regions, PLUS a per-region
+// NF/Data Entry totals comparison. The per-region rate-over-time breakdown
+// lives instead as a "Rate join CG" column on each region's own monthly
+// table (see renderMonthlyTable).
 // ---------------------------------------------------------------------
-const REGION_COLOR_VARS = ['--region-1', '--region-2', '--region-3', '--region-4'];
-
 function renderAnalysisTab(container) {
   const monthly = DATA.TOTAL.monthly;
 
@@ -532,7 +531,6 @@ function renderAnalysisTab(container) {
   const growthTableOn = !!showTableByRegion['TOTAL_growth'];
   const rateTableOn = !!showTableByRegion['TOTAL_rate'];
   const regionTotalsTableOn = !!showTableByRegion['TOTAL_regionTotals'];
-  const regionRateTableOn = !!showTableByRegion['TOTAL_regionRate'];
 
   // -- Card 1: combined growth (all regions summed) --
   const growthCard = document.createElement('div');
@@ -587,30 +585,12 @@ function renderAnalysisTab(container) {
   `;
   container.appendChild(rateCard);
 
-  // -- Card 4: join-CG rate per wilayah, over time --
-  const regionRateCard = document.createElement('div');
-  regionRateCard.className = 'card';
-  regionRateCard.innerHTML = `
-    <div class="card-head">
-      <p class="card-title">Rate NF Bergabung CG &mdash; Per Wilayah</p>
-    </div>
-    <p class="card-hint">Rate per bulan untuk tiap wilayah &mdash; garis putus menandakan bulan tanpa data</p>
-    ${regionRateTableOn ? '' : '<div class="chart-box"><canvas id="regionRateChart"></canvas></div>'}
-    <div class="table-toggle-row">
-      <button class="link-btn" id="regionRateTableToggle" type="button">${regionRateTableOn ? 'Lihat sebagai grafik' : 'Lihat sebagai tabel'}</button>
-    </div>
-    <div id="regionRateTableWrap"></div>
-  `;
-  container.appendChild(regionRateCard);
-
   if (!growthTableOn) drawTotalGrowthChart(monthly);
   if (!regionTotalsTableOn) drawRegionTotalsChart();
   if (!rateTableOn) drawRateChart(monthly);
-  if (!regionRateTableOn) drawRegionRateChart();
   renderGrowthTable(monthly);
   renderRegionTotalsTable();
   renderRateTable(monthly);
-  renderRegionRateTable();
 
   document.getElementById('growthTableToggle').addEventListener('click', () => {
     showTableByRegion['TOTAL_growth'] = !showTableByRegion['TOTAL_growth'];
@@ -622,10 +602,6 @@ function renderAnalysisTab(container) {
   });
   document.getElementById('rateTableToggle').addEventListener('click', () => {
     showTableByRegion['TOTAL_rate'] = !showTableByRegion['TOTAL_rate'];
-    renderContent();
-  });
-  document.getElementById('regionRateTableToggle').addEventListener('click', () => {
-    showTableByRegion['TOTAL_regionRate'] = !showTableByRegion['TOTAL_regionRate'];
     renderContent();
   });
 }
@@ -768,81 +744,6 @@ function renderRegionTotalsTable() {
     return `<tr><td>${DATA[code].label}</td><td>${nf.toLocaleString('id-ID')}</td><td>${de.toLocaleString('id-ID')}</td></tr>`;
   }).join('');
   wrap.innerHTML = `<table class="data-table"><thead><tr><th>Wilayah</th><th>NF</th><th>Data Entry</th></tr></thead><tbody>${rows}</tbody></table>`;
-}
-
-function drawRegionRateChart() {
-  destroyChart('regionRateChart');
-  const ctx = document.getElementById('regionRateChart');
-  if (!ctx) return;
-  const months = DATA.TOTAL.monthly.map(m => m.month);
-  const labels = months.map(formatMonth);
-
-  const datasets = REGION_ORDER.map((code, i) => {
-    const byMonth = {};
-    DATA[code].monthly.forEach(m => { byMonth[m.month] = m.rate; });
-    const color = css(REGION_COLOR_VARS[i]);
-    return {
-      label: DATA[code].label,
-      data: months.map(m => (m in byMonth) ? byMonth[m] : null),
-      borderColor: color,
-      backgroundColor: color,
-      fill: false,
-      tension: 0.25,
-      borderWidth: 2,
-      pointRadius: 3,
-      pointBackgroundColor: color,
-      pointBorderColor: css('--surface-1'),
-      pointBorderWidth: 1.5,
-      spanGaps: false, // an honest gap for months a region has no data, not an interpolated guess
-    };
-  });
-
-  liveCharts['regionRateChart'] = new Chart(ctx, {
-    type: 'line',
-    data: { labels, datasets },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: legendBase(),
-        tooltip: Object.assign({
-          callbacks: {
-            label: (item) => item.parsed.y != null ? `${item.dataset.label}: ${item.parsed.y.toFixed(1)}%` : `${item.dataset.label}: tidak ada data`,
-          },
-        }, tooltipBase()),
-      },
-      scales: commonScales({
-        y: {
-          beginAtZero: true,
-          grid: { color: css('--gridline') },
-          ticks: { color: css('--text-muted'), font: { size: 11 }, callback: (v) => v + '%' },
-          border: { display: false },
-        },
-      }),
-    },
-  });
-}
-
-function renderRegionRateTable() {
-  const wrap = document.getElementById('regionRateTableWrap');
-  if (!wrap) return;
-  if (!showTableByRegion['TOTAL_regionRate']) { wrap.innerHTML = ''; return; }
-  const months = DATA.TOTAL.monthly.map(m => m.month);
-  const byRegion = {};
-  REGION_ORDER.forEach(code => {
-    byRegion[code] = {};
-    DATA[code].monthly.forEach(m => { byRegion[code][m.month] = m.rate; });
-  });
-  const header = `<th>Bulan</th>` + REGION_ORDER.map(code => `<th>${DATA[code].label}</th>`).join('');
-  const rows = months.map(m => {
-    const cells = REGION_ORDER.map(code => {
-      const r = byRegion[code][m];
-      return `<td>${r != null ? r.toFixed(1) + '%' : '—'}</td>`;
-    }).join('');
-    return `<tr><td>${formatMonth(m)}</td>${cells}</tr>`;
-  }).join('');
-  wrap.innerHTML = `<table class="data-table"><thead><tr>${header}</tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 document.getElementById('themeToggle').addEventListener('click', () => {
